@@ -3,17 +3,25 @@
  * the Person class.
  */
 
+import javax.print.attribute.standard.JobMessageFromOperator;
+
 public class Person {
   // Declare a public String instance variable for the name of the person
+  public String name;
   // Declare a private int instance variable for the age of the person
-
+  private int age;
 
   // Create a constructor that takes the name and age of the person
   // and assigns it to the instance variables
-
+  public Person(String name, int age){
+    this.age = age;
+    this.name = name;
+  }
 
   // Create a toString method that gives the name and age of the person
-
+  public String toString(){
+    return name + " is " + age + " years old.";
+  }
 
   // Implement the below public instance method "birthYear"
   // There should NOT be any print statement in this method.
@@ -27,26 +35,37 @@ public class Person {
    * @param currentYear an int for the current year
    * @return The year the person was born
    */
-  // (create the instance method here)
+  public int birthYear(int currentYear){
+    int date = currentYear - age;
+    return date;
+  }
 
 
   public static void main(String[] args) {
     // Create an instance of Person
+    Person joe = new Person("Joe", 10);
 
     // Create another instance of Person with a different name and age and
+    Person jill = new Person("Jill", 20);
     // assign it to a different variable
-
+    Person swimmer = jill;
     // Print the first person
+    System.out.println(joe.name);
 
     // Print the second person
+    System.out.println(swimmer.name);
 
     // Get the name of the first person and store it in a local variable
+    String str = joe.name;
 
     // Using the birthYear method, get the birth year of the first person
     // and store it in a local variable. Input the actual current year (e.g. 2025)
     // as the argument.
+    int yr = joe.birthYear(2025);
+
 
     // In a separate statement, print the local variable holding the birth year.
+    System.out.println(yr);
 
     /**
      * Terminology!
